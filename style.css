@@ -18,7 +18,7 @@ a:hover
 
 a:visited
 {
-  color: #6969ff;
+  color: #33adff;
 }
 .InfoHeader
 {
@@ -63,4 +63,10 @@ nav
 section
 {
   margin-left: 11%;
+}
+footer
+{
+  text-align: center;
+  font-size: 0.8em;
+  font-style: oblique;
 }
