@@ -1,108 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang=fr>
+  <head>
+    <meta charset="utf-8">
+    <title>Page pro de Guillaume Chupin</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/master.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- style="background-color: #21bbbb";> #21bbbb#ff69cc;-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Logo</a>
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="nav-content">
+    <ul class="navbar-nav">
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Mes Projets Web
+    </a>
+    <div class="dropdown-menu" aria-labelledby="Preview">
+    <a class="dropdown-item" href="blog/index.html">Blog</a>
+    <a class="dropdown-item" href="Blackjack/blackjack.html">Blackjack</a>
+    </div>
+    </li>
+    </ul>
+    </div>
+    </nav>
 
-    <head>
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
-        <meta charset="utf-8" />
-        <meta name="description" content="Voici la page perso de Guillaume Chupin.">
-        <meta name="keywords" content="Guillaume, Chupin, Page perso de Guillaume Chupin, Université, Bordeaux, etudiant, Master, informatique">
-        <meta name="author" content="Guillaume Chupin">
-        <meta http-equiv="content-language" content="fr">
-        	<link rel="stylesheet" href="style.css" />
-        <title>Page professionnelle de Guillaume Chupin</title>
+    <!-- Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
-    </head>
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <!-- Initialize Bootstrap functionality -->
+    <script>
+    // Initialize tooltip component
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
 
-    <body>
-      <header>
-        <h1 class="TitleHeader">Guillaume Chupin</h1>
-        <h2 class="InfoHeader">Page personnelle à l'Université de Bordeaux</h2>
-      </header>
-      <nav>
-          <li><a class="navItem" href="#Info">Présentation</a></li>
-          <li><a class="navItem" href="#Musique">Musiques</a></li>
-          <li><a class="navItem" href="#Serie">Séries</a></li>
-          <li><a class="navItem" href="#Livres">Livres</a></li>
-      </nav>
-      <section>
-      <h1 id="Info">Présentation</h1>
-      <p>Je suis actuellement,année scolaire 2017-2018, étudiant en 1ère année de master à l'<a href="https://www.u-bordeaux.fr">Université de Bordeaux</a>. <br>
-      Avant ça, j'ai obtenu une licence informatique dans la même université. <br>
-      Et encore avant, j'ai obtenu, en 2014, un baccalauréat scientifique spécialité mathématique <br>
-      au <a href="http://lycee-predecordy-sarlat.com">Lycée Pré De Cordy</a> à <a href="http://www.sarlat-tourisme.com">Sarlat La Canéda</a>, une chamante petite ville touristique en Dordogne.<br>
-      Ci-cela vous interresse voici le lien de mon <a href="https://github.com/gchupin" title="Que des projets universitaires">github</a>.</p>
-      <h1 id="Musique">Musiques</h1>
-      <p>Voici ma petite playlist des musiques que j'aime bien</p>
-      <ul>
-        <li><a href="https://www.youtube.com/watch?v=WwG-gZpJbN8" title="Du lourd métal sa mère">Half Life </a> - Sphaera</li>
-        <li><a href="https://youtu.be/xvMZQAH903I">Faceless</a> - Sphaera</li>
-        <li><a href="https://www.youtube.com/watch?v=N_kgNl69nlQ">Alchemistry</a> - Sphaera </li>
-        <li><a href="https://www.youtube.com/watch?v=bty4-TgBV9I">115</a> - Elena Siegman</li>
-        <li><a href="https://youtu.be/wygy721nzRc" title="Chopin la base">Compil de Chopin</a> Parfait pour se détendre ou pendant une activité</li>
-        <li><a href="https://www.youtube.com/watch?v=FupbLRVpbCM" title="Le paraadiiiis">Le paradis</a> - François Juno</li>
-        <li><a href="https://www.youtube.com/watch?v=fLZ970tL2YY" title="Oui c'est un mec qui chante">L'an 1999</a> - François Juno</li>
-        <li><a href="https://www.youtube.com/watch?v=8AF-Sm8d8yk" title="BigFlo et Oli c'est cool">Dommage</a> - Big Flo & Oli</li>
-        <li><a href="https://youtu.be/WGmHaMRAXuI" title="Radio de Fallout 3">Galaxi news radio</a> - Radio de Fallout 3</li>
-        <li><a href="https://www.youtube.com/watch?v=2BaqXwVaYlc">Radio Fallout New Vegas</a></li>
-      </ul>
-      <h1 id="Serie">Series</h1>
-      <p>Liste non exhaustive des séries que j'apprécie.</p>
-        <ul>
-          <li>Rick et Morty</li>
-          <li>Doctor Who</li>
-          <li>Torchwood (Seulement les 2 premières saisons)</li>
-          <li>Futurama</li>
-          <li>Archer</li>
-          <li>Bojack Horseman</li>
-          <li>Gurren Lagan</li>
-          <li>Bobobo-bo Bo-bobo (anime arrété vraiment dommage)</li>
-          <li>Kill La Kill</li>
-          <li>One Punch Man</li>
-          <li>Psycho Mob 100</li>
-          <li>Death Note</li>
-          <li>My Hero Academia</li>
-          <li>Angel Beats</li>
-          <li>Full Metal Alchemist</li>
-          <li>Full Metal Alchemist : Brotherhood</li>
-          <li>School Day</li>
-        </ul>
-        <h1 id="Livres">Livres</h1>
-        <p>Liste, non exhaustive (je ne me rappelle pas de tout), des livres lu.</p>
-          <ul>
-            <li>Nouvelle Encyclopédie Du Savoir Relatif et Absolu - Bernard Werber</li>
-            <li>Les Fourmis- Bernard Werber</li>
-            <li>Le Jour des fourmis- Bernard Werber</li>
-            <li>La Révoluton fourmis- Bernard Werber</li>
-            <li>L'Ultime Secret - Bernard Werber</li>
-            <li>Le Papillon des étoiles - Bernard Werber</li>
-            <li>Le Rire du cyclope - Bernard Werber</li>
-            <li>Les Thanatonautes - Bernard Werber</li>
-            <li>L'Empire des anges - Bernard Werber</li>
-            <li>Le Livre du voyage - Bernard Werber</li>
-            <li>Nous les dieux - Bernard Werber</li>
-            <li>Le soufle des dieux - Bernard Werber</li>
-            <li>Le mystére des dieux - Bernard Werber</li>
-            <li>L'Arbre des possibles - Bernard Werber</li>
-            <li>Le Miroir de Cassandre - Bernard Werber</li>
-            <li>Troisième humanité - Bernard Werber</li>
-            <li>Les Micro-humains - Bernard Werber</li>
-            <li>Le sixème sommeil - Bernard Werber</li>
-            <li>Le livre du voyage - Bernard Werber</li>
-            <li>Le Guide du voyageur galactique - Douglas Adams</li>
-            <li>Le Dernier restaurant avant la fin du monde - Douglas Adams</li>
-            <li>La vie, l'univers et le reste - Douglas Adams</li>
-            <li>Salut ! et encore merci pour le poisson ! - Douglas Adams</li>
-            <li>Globalement inofensive - Douglas Adams</li>
-            <li>Le Cycle des robots 1 à 6 - Isaac Asimov</li>
-            <li>Ça tome 1 et 2 - Stephen King</li>
-            <li>Le Bazar des mauvais rêves - Stephen King</li>
+    // Initialize popover component
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+    </script>
+    <div class="container">
 
-          </ul>
-
-          <footer>
-            <p>Autheur : Guillaume Chupin <br></p>
-          </footer>
-    </body>
-
-</html>
+    </div>
+  </body>
+  </html>

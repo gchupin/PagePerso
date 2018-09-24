@@ -1,0 +1,43 @@
+.Article
+{
+  margin-top: 3.5em;
+}
+
+.Catégorie_name
+{
+  font-size: 5em;
+  text-align: center;
+  margin-top: 1.2em;
+}
+
+.Catégorie
+{
+  background-color: lightblue;
+  padding-right: 1px;
+  padding-left: 1px;
+}
+
+.Autheur
+{
+  background-color: lightgrey;
+  margin-left: 15px;
+  padding-right: 1px;
+  padding-left: 1px;
+}
+
+.btn-sm
+{
+  height: 0.8rem;
+}
+
+.btn-font
+{
+  font-size: 10px;
+  line-height: 0px;
+}
+
+.page-header
+{
+  margin-top: 0px;
+  margin-bottom: 10px;
+}

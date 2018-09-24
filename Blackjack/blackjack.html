@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="blackjack.css">
+  <title>BlackJackytuning69</title>
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-                  ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="blackjack.js" defer></script>
+</head>
+
+<body>
+<div class="container">
+    <h1 class="Page-Header">BlackJack</h1>
+    <p class="bet">Votre argent: 100 Celui de la banque: 100</p>
+    <h2> Les cartes de la banque</h2>
+    Niveau de la banque: <span id="bankScores"></span>
+    <div id="bank-cards">
+    </div>
+    <h2>Vos cartes</h2>
+    <div>
+      Votre niveau: <span id="playerScores">17</span> <button id="btn-draw" class="btn btn-sm btn-success">Nouvelle carte</button><button id="btn-stay" class="btn btn-sm btn-warning">Finir le tour</button>
+    </div>
+    <br>
+    <div id="player-cards">
+    </div>
+  </div>
+</body>
+</html>
