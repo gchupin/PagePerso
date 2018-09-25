@@ -8,7 +8,24 @@
   background-color: #21bbbb;
 }
 
-.my-navbar-brand
+.card-header
 {
-  color: white;
+  font-size: 33px;
+  font-weight: bold;
+}
+
+body
+{
+  background-color: #ffccff;
+  font-size: 12px;
+}
+
+body.en :lang(fr)
+{
+  display: none;
+}
+
+body.fr :lang(en)
+{
+  display: none;
 }
