@@ -77,7 +77,7 @@ function blackjack ()
 {
   document.getElementById("btn-draw").removeEventListener("click", playerPlays);
   document.getElementById("btn-stay").removeEventListener("click", playerStays);
-  bodyChange ("DeepPink", "200px", "white", "center", "BLACKJACK", false);
+  bodyChange ("DeepPink", "200px", "white", "center", "BLACKJACK", getCookie ("bet") * 2, false);
   $("div").fadeOut (1000);
 }
 
@@ -85,17 +85,17 @@ function playerWin ()
 {
   document.getElementById("btn-draw").removeEventListener("click", playerPlays);
   document.getElementById("btn-stay").removeEventListener("click", playerStays);
-  bodyChange ("white", "200px", "DeepPink", "center", "Félicitation", false);
+  bodyChange ("white", "200px", "DeepPink", "center", "Félicitation", getCookie ("bet"), false);
 }
 
 function playerLoose ()
 {
   document.getElementById("btn-draw").removeEventListener("click", playerPlays);
   document.getElementById("btn-stay").removeEventListener("click", playerStays);
-  bodyChange ("black", "200px", "red", "center", "Perdu", false);
+  bodyChange ("black", "200px", "red", "center", "Perdu", -getCookie ("bet"), false);
 }
 
-function bodyChange (bgColor, ftSize, color, txtAlign, txt, fadeIn)
+function bodyChange (bgColor, ftSize, color, txtAlign, txt, reward, fadeIn)
 {
   if (fadeIn) $("div").fadeIn (1000);
   else $("div").fadeOut (1000);
@@ -108,6 +108,13 @@ function bodyChange (bgColor, ftSize, color, txtAlign, txt, fadeIn)
     if (!fadeIn)
     {
       $("body").append (txt);
+      $("body").append ("<br>");
+      if (reward > 0)
+      $("body").append ("You earn " + reward);
+      else
+      $("body").append ("You lose " + (-reward));
+      setCookie ("playerMoney", Number(getCookie("playerMoney")) + Number(reward) ,30);
+      setCookie ("bankMoney", Number(getCookie("bankMoney")) - Number(reward) ,30);
       replay ();
     }
   }, 1000);
@@ -116,21 +123,69 @@ function bodyChange (bgColor, ftSize, color, txtAlign, txt, fadeIn)
 function replay ()
 {
   $("body").append ("<br/>");
-  var r= $('<input id="btn-replay" type="button" class="btn-sm btn-info" value="Rejouer"/>');
+  let r= $('<input id="btn-replay" type="button" class="btn-sm btn-info" value="Rejouer"/>');
   $("body").append(r);
   document.getElementById("btn-replay").addEventListener("click", function (){
     location.reload ();
   });
 }
 
-function begin ()
-{
-  addCard ("player-cards");
-  addCard ("player-cards");
-  addCard ("bank-cards");
+function setCookie(cname,cvalue,exdays) {
+    let d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function playerPlays ()
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function updateMoney ()
+{
+  let playerMoney = getCookie ("playerMoney");
+  let bankMoney = getCookie ("bankMoney");
+  if (playerMoney != "" && bankMoney != "")
+  {
+    document.getElementById ("bankMoney").innerHTML = bankMoney;
+    document.getElementById ("playerMoney").innerHTML = playerMoney;
+  }
+  else
+  {
+    let bankMoneyStart = prompt ("How many money do you want to start", 100);
+    let playerMoneyStart = prompt ("How many money do you want to start", 100);
+    setCookie ("bankMoney", bankMoneyStart, 30);
+    setCookie ("playerMoney", playerMoneyStart, 30);
+  }
+}
+
+function begin ()
+{
+  $("#game").show ();
+
+  setTimeout (function () {addCard ("player-cards")}, 500);
+  setTimeout (function () {addCard ("player-cards")}, 1000);
+  setTimeout (function () {
+    addCard ("bank-cards");
+    document.getElementById("btn-draw").addEventListener("click", playerPlays);
+    document.getElementById("btn-stay").addEventListener("click", playerStays);
+  }, 1500);
+
+  }
+
+  function playerPlays ()
 {
   addCard("player-cards");
 }
@@ -158,8 +213,43 @@ function playerStays ()
   }, 1000);
 }
 
-document.onload = begin (); //draw card at the begining
+function gameOver (bgColor, txtColor, txt)
+{
+  $("div").hide();
+  $("body").css("background-color", bgColor);
+  $("body").css("font-size", "200px");
+  $("body").css("color", txtColor);
+  $("body").append(txt);
+  $("body").css("text-align", "center");
+}
 
-document.getElementById("btn-draw").addEventListener("click", playerPlays);
+function bet ()
+{
+  $("#game").hide ();
+  updateMoney ();
+  let betValue = null;
+  document.cookie = "bet=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";//supprime le cookie
+  let playerMoney = getCookie ("playerMoney");
+  let bankMoney = getCookie ("bankMoney");
+  if (playerMoney <= 0)
+  {
+    gameOver ("red", "green", "T'a plus de fric boloss");//pétage des yeux
+  }
+  else if (bankMoney <= 0)
+  {
+    gameOver ("yellow", "blue", "Bravo t'a séché la banque <br> Go vegan");
+  }
+  else {
+    {
+  }
+  do
+  {
+    betValue = prompt ("Please enter your bet between 1 and " + playerMoney + ": ", 50);
+  }while(betValue === null || Number(betValue) > playerMoney || betValue <= 0)
+  setCookie ("bet",betValue,30);
+  document.getElementById ("currentBet").innerHTML = betValue;
+  begin ();
+}
+}
 
-document.getElementById("btn-stay").addEventListener("click", playerStays);
+document.onload = bet ();//begin ();

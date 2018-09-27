@@ -14,20 +14,33 @@
 </head>
 
 <body>
-<div class="container">
-    <h1 class="Page-Header">BlackJack</h1>
-    <p class="bet">Votre argent: 100 Celui de la banque: 100</p>
-    <h2> Les cartes de la banque</h2>
-    Niveau de la banque: <span id="bankScores"></span>
-    <div id="bank-cards">
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="Page-Header col-sm-12">BlackJack</h1>
+      <p class="bet col-sm-12">Votre argent: <span id="playerMoney">100</span> Celui de la banque: <span id="bankMoney">100</span></p>
     </div>
-    <h2>Vos cartes</h2>
-    <div>
-      Votre niveau: <span id="playerScores">17</span> <button id="btn-draw" class="btn btn-sm btn-success">Nouvelle carte</button><button id="btn-stay" class="btn btn-sm btn-warning">Finir le tour</button>
-    </div>
-    <br>
-    <div id="player-cards">
-    </div>
+    <span id="game">
+      <div class="row">
+        <h2> Les cartes de la banque</h2>
+      </div>
+      <div class="row">
+        Niveau de la banque: <span id="bankScores" class="ml-1"></span>
+      </div>
+      <div id="bank-cards" class="row mt-2">
+      </div>
+      <div class="row  mt-4">
+        <h2>Vos cartes</h2>
+      </div>
+      <div class="row">
+        Votre mise: <span id="currentBet" class="ml-1"></span>
+      </div>
+      <div class="row">
+        Votre niveau: <span id="playerScores" class="ml-1"></span> <button id="btn-draw" class="btn btn-sm btn-success ml-4">Nouvelle carte</button><button id="btn-stay" class="btn btn-sm btn-warning">Finir le tour</button>
+      </div>
+      <br>
+      <div id="player-cards">
+      </div>
+    </span>
   </div>
 </body>
 </html>
