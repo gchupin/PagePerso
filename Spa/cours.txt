@@ -1,0 +1,11 @@
+Same origin policy: Bloque les requêtes vers un domaine qui est différent de celui du fichier javascript effectuant les requêtes.
+Faut supporter {*JSONP
+		 					  *Cors}
+Solution: 1-Modifier les requêtes et les serveurs pour désactivé le same origin. (Le serveur doit creer ces protocoles)
+
+
+Jquery:
+async:{* XMLHttpRequest
+			 * fetch (Promesse)}
+Permet de faire des requêtes sur un service tiers
+ex: fetch (URL).then (...)

@@ -1,87 +1,97 @@
 <!DOCTYPE html>
 
 <html lang="fr">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="author" content="Guillaume">
-		<meta name="description" content="TD1 Prog WEB">
-		<link href="../css/bootstrap.css" rel="stylesheet">
-		<link href="bs_style.css" rel="stylesheet">
-		<title>TD1</title>
-	</head>
-	
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-			<div class="navbar-header">
-				<p class="navbar-brand"> Blog </p>
-			</div>
-			<div class="container">
-				<ul class="navbar-nav">
-					<li class="active"><a class="nav-link" href="#">Accueil</a></li>
-					<li class="nav-item"><a class="nav-link" href="PerfectionSport.html">Perfection sport</a></li>
-					<li class="nav-item"><a class="nav-link" href="SpacePhilosophy.html">Philosophie de l'espace</a></li>
-					<li class="nav-item"><a class="nav-link" href="DiscussionLibre.html">Discussion libre</a></li>
-				</ul>
-				<span class="navbar-nav nav-item"> <a class="nav-link" href="../index.html">Page Pro</a> </span>
-			</div>
-		</nav>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Guillaume">
+	<meta name="description" content="TD1 Prog WEB">
+	<link href="../css/bootstrap.css" rel="stylesheet">
+	<link href="bs_style.css" rel="stylesheet">
+	<script src="../jquery-3.3.1.js"></script>
+	<script src="my.js" defer></script>
+	<!--For the collapse button-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<title>TD1</title>
+</head>
 
-		<div class="container">
-			<div class="row jumbotron">
-				<h2 class="Catégorie_name">Accueil</h2>
-			</div>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+		<div class="navbar-header">
+			<p class="navbar-brand"> Blog </p>
 		</div>
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-6 Article">
-					<div class="page-header">
-			<h3> Indéniablement subversif</h3>
+			<ul class="navbar-nav">
+				<li class="active"><a class="nav-link" href="#">Accueil</a></li>
+				<li class="nav-item"><a class="nav-link" href="PerfectionSport.html">Perfection sport</a></li>
+				<li class="nav-item"><a class="nav-link" href="SpacePhilosophy.html">Philosophie de l'espace</a></li>
+				<li class="nav-item"><a class="nav-link" href="DiscussionLibre.html">Discussion libre</a></li>
+			</ul>
+			<span class="navbar-nav nav-item"> <a class="nav-link" href="../index.html">Page Pro</a> </span>
 		</div>
-			<div class="row">
-				<a href="DiscussionLibre.html" role="button" class="btn btn-info btn-sm btn-font" >
-					Discussion Libre
-				</a>
-				<button type="button" class="btn btn-warning btn-sm btn-font">
-						Patrick Sebastien
-				</button>
-			</div>
-			<p>
-				Ils font rien qu'a nous faire des promesses <br>
-				Qu'ils ne tiennent jamais <br>
-				La seule chose qui les intéresse <br>
-				C'est d'passer à la télé <br>
+	</nav>
 
-				Tout pomponnés <br>
-				Tout maquillés <br>
-				Ils viennent parler au journal <br>
-				Pendant que monte du fond des cafés <br>
-				Le son de la chorale <br>
-			<br>
-				Ah si tu pouvais fermer ta gueule <br>
-				Ça nous ferait des vacances <br>
-				Ah si tu pouvais fermer ta gueule  <br>
-				Ça ferait du bien à la France <br>
-			</p>
+	<div class="container">
+		<div class="row jumbotron">
+			<h2 class="Catégorie_name">Accueil</h2>
 		</div>
-				<div class="col-lg-4 col-md-4 col-sm-6 Article">
-					<div class="page-header">
-					<h3> Perfection sport</h3>
-				</div>
-					<div class="row">
-					<a href="PerfectionSport.html" role="button" class="btn btn-info btn-sm btn-font" >
-					Perfection sport
-					</a>
-					<button type="button" class="btn btn-warning btn-sm btn-font" >
-							Super Rosel
-					</button>
-					</div>
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<img class="img-fluid rounded" src="rosel.jpg" alt="Super Rosel" style="width: 10%; height: 10%">
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-6 Article">
+				<div class="page-header">
+					<h3> Indéniablement subversif</h3>
 				</div>
 				<div class="row">
-				<p class="col-lg-8 col-md-8 col-sm-8">
+					<a href="DiscussionLibre.html" role="button" class="btn btn-info btn-sm btn-font" >
+						Discussion Libre
+					</a>
+					<button type="button" class="btn btn-warning btn-sm btn-font">
+						Patrick Sebastien
+					</button>
+				</div>
+				<p>
+					Ils font rien qu'a nous faire des promesses <br>
+					Qu'ils ne tiennent jamais <br>
+					La seule chose qui les intéresse <br>
+					C'est d'passer à la télé <br>
+
+					Tout pomponnés <br>
+					Tout maquillés <br>
+					Ils viennent parler au journal <br>
+					Pendant que monte du fond des cafés <br>
+					Le son de la chorale <br>
+					<br>
+					Ah si tu pouvais fermer ta gueule <br>
+					Ça nous ferait des vacances <br>
+					Ah si tu pouvais fermer ta gueule  <br>
+					Ça ferait du bien à la France <br>
+				</p>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#StreetList1">Afficher les rues des quartiers %5=1</button>
+				<div id="StreetList1" class="collapse">
+
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-6 Article">
+				<div class="page-header">
+					<h3> Perfection sport</h3>
+				</div>
+				<div class="row">
+					<a href="PerfectionSport.html" role="button" class="btn btn-info btn-sm btn-font" >
+						Perfection sport
+					</a>
+					<button type="button" class="btn btn-warning btn-sm btn-font" >
+						Super Rosel
+					</button>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<img class="img-fluid rounded" src="rosel.jpg" alt="Super Rosel" style="width: 10%; height: 10%">
+				</div>
+				<div class="row">
+					<p class="col-lg-8 col-md-8 col-sm-8">
 						Perfection sport la nouvelle tendance dont tout le monde parle
 						phénomène de mode de type pokemon go, cette mode disparaitra
 						rapidement en laissant place à une autre mais une chose est
@@ -91,81 +101,93 @@
 						rigolade. Rip Messmer.
 					</p>
 					<div class="col-lg-4  col-md-4">
-					<img class="img-fluid rounded" src="Messmer.jpg" alt="Messmer l'hypnotiseur qui te transforme en sanglier">
+						<img class="img-fluid rounded" src="Messmer.jpg" alt="Messmer l'hypnotiseur qui te transforme en sanglier">
+					</div>
 				</div>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#StreetList2">Afficher les rues des quartiers %5=2</button>
+				<div id="StreetList2" class="collapse">
 				</div>
 			</div>
-		 <div class="col-lg-4 col-md-4 col-sm-6 Article">
-			 <div class="page-header">
-			 <h3> Exoconférence</h3>
-		 </div>
-			 <div class="row">
-				 <a href="SpacePhilosophy.html" role="button" class="btn btn-info btn-sm btn-font" >
-				 Philosophie de l'espace
-				 </a>
-				 <button type="button" class="btn btn-warning btn-sm btn-font" >
-						 Etienne Klein
-				 </button>
-			 </div>
-			 <p class="col-lg-10 col-md-8">
-				Inter has ruinarum varietates a Nisibi quam tuebatur accitus Vrsicinus, cui cui les ptits oiseaux
-				nos obsecuturos iunxerat imperiale praeceptum, dispicere litis exitialis certamina cogebatur abnuens
-				et reclamans, adulatorum oblatrantibus turmis, bellicosus sane milesque semper et militum ductor sed
-				forensibus iurgiis longe discretus, qui metu sui discriminis anxius cum accusatores quaesitoresque
-				subditivos sibi consociatos ex isdem foveis cerneret emergentes, quae clam palamve agitabantur,
-				occultis Constantium litteris edocebat inplorans subsidia, quorum metu tumor notissimus Caesaris
-				exhalaret.
-			</p>
-			<img class="img-fluid rounded" src="Etienne.jpeg" alt="Etienne Klein en mode Badass"  style="width: 10%; height: 10%">
-		</div>
-		<div class="col-lg-4 col-md-4 col-sm-6 Article">
-			<div class="page-header">
-			<h3>C'est une halucination collective </h3>
+			<div class="col-lg-4 col-md-4 col-sm-6 Article">
+				<div class="page-header">
+					<h3> Exoconférence</h3>
+				</div>
+				<div class="row">
+					<a href="SpacePhilosophy.html" role="button" class="btn btn-info btn-sm btn-font" >
+						Philosophie de l'espace
+					</a>
+					<button type="button" class="btn btn-warning btn-sm btn-font" >
+						Etienne Klein
+					</button>
+				</div>
+				<p class="col-lg-10 col-md-8">
+					Inter has ruinarum varietates a Nisibi quam tuebatur accitus Vrsicinus, cui cui les ptits oiseaux
+					nos obsecuturos iunxerat imperiale praeceptum, dispicere litis exitialis certamina cogebatur abnuens
+					et reclamans, adulatorum oblatrantibus turmis, bellicosus sane milesque semper et militum ductor sed
+					forensibus iurgiis longe discretus, qui metu sui discriminis anxius cum accusatores quaesitoresque
+					subditivos sibi consociatos ex isdem foveis cerneret emergentes, quae clam palamve agitabantur,
+					occultis Constantium litteris edocebat inplorans subsidia, quorum metu tumor notissimus Caesaris
+					exhalaret.
+				</p>
+				<img class="img-fluid rounded" src="Etienne.jpeg" alt="Etienne Klein en mode Badass">
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#StreetList3">Afficher les rues des quartiers %5=3</button>
+				<div id="StreetList3" class="collapse">
+				</div>
 			</div>
-			<div class="row">
-				<a href="SpacePhilosophy.html" role="button" class="btn btn-info btn-sm btn-font" >
-				Philosophie de l'espace
-				</a>
-				<button type="button" class="btn btn-warning btn-sm btn-font" >
+			<div class="col-lg-4 col-md-4 col-sm-6 Article">
+				<div class="page-header">
+					<h3>C'est une halucination collective </h3>
+				</div>
+				<div class="row">
+					<a href="SpacePhilosophy.html" role="button" class="btn btn-info btn-sm btn-font" >
+						Philosophie de l'espace
+					</a>
+					<button type="button" class="btn btn-warning btn-sm btn-font" >
 						Silvain Durif
-				</button>
+					</button>
+				</div>
+				<p>
+					Dans chaque culture sur la planète, un messager est attendu, que ce
+					soit le Maitreya des Bouddhistes, le Messie des Juifs, le Paraclet
+					des Chrétiens ou encore d'autres envoyés auxquels de nombreuses
+					tribus autour de la planète ont donné différents noms. Le messager
+					attendu, tout comme les précédents, n'est pas supposé plaire à tout
+					le monde, mais il doit exposer ce que les Élohim attendent de nous.
+					C'est ce que Raël fait depuis plus de 30 ans maintenant, voyageant
+					sans cesse, faisant le vœu de ne rien posséder, mais de donner tout
+					pour l'accueil de nos Créateurs, dans une Ambassade qui doit être
+					construite avant 2035.</p>
+					<img class="img-fluid rounded" src="rael.jpeg" alt="Mon poto rael">
+					<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#StreetList4">Afficher les rues des quartiers %5=4</button>
+					<div id="StreetList4" class="collapse">
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-6 Article">
+					<div class="page-header">
+						<h3> Perfection sport </h3>
+					</div>
+					<div class="row">
+						<a href="PerfectionSport.html" role="button" class="btn btn-info btn-sm btn-font" >
+							Perfection Sport
+						</a>
+						<button type="button" class="btn btn-warning btn-sm btn-font" >
+							Bernard Werber
+						</button>
+					</div>
+					<p>
+						<span>Perfection sport</span> Perfection sport Perfection sport Perfection sport
+						Perfection sport Perfection sport Perfection sport Perfection sport
+						Perfection sport Perfection sport Perfection sport Perfection
+						sport Perfection sport Perfection sport Perfection sport Perfection
+						sport Perfection sport Perfection sport Perfection sport Perfection
+						sport Perfection sport Perfection sport
+					</p>
+					<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#StreetList5">Afficher les rues des quartiers %5=0</button>
+					<div id="StreetList5" class="collapse">
+					</div>
+				</div>
 			</div>
-			<p>
-				Dans chaque culture sur la planète, un messager est attendu, que ce
-				soit le Maitreya des Bouddhistes, le Messie des Juifs, le Paraclet
-				des Chrétiens ou encore d'autres envoyés auxquels de nombreuses
-				tribus autour de la planète ont donné différents noms. Le messager
-				attendu, tout comme les précédents, n'est pas supposé plaire à tout
-				le monde, mais il doit exposer ce que les Élohim attendent de nous.
-				C'est ce que Raël fait depuis plus de 30 ans maintenant, voyageant
-				sans cesse, faisant le vœu de ne rien posséder, mais de donner tout
-				pour l'accueil de nos Créateurs, dans une Ambassade qui doit être
-				construite avant 2035.</p>
-				<img class="img-fluid rounded" src="rael.jpeg" alt="Mon poto rael">
 		</div>
-		<div class="col-lg-4 col-md-4 col-sm-6 Article">
-			<div class="page-header">
-			<h3> Perfection sport </h3>
-		</div>
-			<div class="row">
-				<a href="PerfectionSport.html" role="button" class="btn btn-info btn-sm btn-font" >
-				Perfection Sport
-				</a>
-				<button type="button" class="btn btn-warning btn-sm btn-font" >
-						Bernard Werber
-				</button>
-			</div>
-			<p>
-				<span>Perfection sport</span> Perfection sport Perfection sport Perfection sport
-				Perfection sport Perfection sport Perfection sport Perfection sport
-				Perfection sport Perfection sport Perfection sport Perfection
-				sport Perfection sport Perfection sport Perfection sport Perfection
-				sport Perfection sport Perfection sport Perfection sport Perfection
-				sport Perfection sport Perfection sport
-			</p>
-		</div>
-	</div>
-	</div>
 
 	</body>
 	</html>
