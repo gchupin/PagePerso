@@ -1,9 +1,12 @@
-let deck = ["10Clubs", "11Hearts", "13Clubs", "1Hearts", "3Clubs", "4Hearts", "6Clubs",  "7Hearts", "9Clubs",
-"10Diamonds", "11Spades", "13Diamonds", "1Spades", "3Diamonds", "4Spades", "6Diamonds", "7Spades", "9Diamonds",
-"10Hearts", "12Clubs", "13Hearts", "2Clubs", "3Hearts", "5Clubs", "6Hearts", "8Clubs", "9Hearts",
-"10Spades", "12Diamonds", "13Spades", "2Diamonds", "3Spades", "5Diamonds", "6Spades", "8Diamonds", "9Spades",
-"11Clubs", "12Hearts", "1Clubs", "2Hearts", "4Clubs", "5Hearts", "7Clubs", "8Hearts",
-"11Diamonds", "12Spades", "1Diamonds", "2Spades", "4Diamonds", "5Spades", "7Diamonds", "8Spades"];
+let deck = ["10Clubs", "11Hearts", "13Clubs", "1Hearts", "3Clubs", "4Hearts",
+"6Clubs",  "7Hearts", "9Clubs", "10Diamonds", "11Spades", "13Diamonds",
+"1Spades", "3Diamonds", "4Spades", "6Diamonds", "7Spades", "9Diamonds",
+"10Hearts", "12Clubs", "13Hearts", "2Clubs", "3Hearts", "5Clubs", "6Hearts",
+"8Clubs", "9Hearts", "10Spades", "12Diamonds", "13Spades", "2Diamonds",
+"3Spades", "5Diamonds", "6Spades", "8Diamonds", "9Spades", "11Clubs",
+"12Hearts", "1Clubs", "2Hearts", "4Clubs", "5Hearts", "7Clubs", "8Hearts",
+"11Diamonds", "12Spades", "1Diamonds", "2Spades", "4Diamonds", "5Spades",
+"7Diamonds", "8Spades"];
 
 let playerScores = 0;
 let bankScores = 0;
@@ -27,15 +30,16 @@ function NewCard (id)
   {
     const card = deck[Math.floor (Math.random() * deck.length)];
     let cardNum = Number(card.slice (0, 2));
-    if (Number(isNaN(cardNum)))
+    if (Number.isNaN(cardNum))
     {
-      if (id !== "bank-cards") playerScores = playerScores + Number (card.slice (0, 1));
-      else bankScores = bankScores + Number (card.slice (0, 1));
+      if (id !== "bank-cards")
+      {playerScores = playerScores + Number (card.slice (0, 1));}
+      else {bankScores = bankScores + Number (card.slice (0, 1));}
     }
     else
     {
-      if (id !== "bank-cards") playerScores = playerScores + 10;
-      else bankScores = bankScores + 10;
+      if (id !== "bank-cards") {playerScores = playerScores + 10;}
+      else {bankScores = bankScores + 10;}
     }
     getScores ();
     deck = deck.filter (deck => deck !== card);
@@ -68,16 +72,17 @@ function getScores ()
 
 function isGameOver ()
 {
-  if (playerScores > 21) playerLoose ();
-  if (playerScores === 21) blackjack ();
-  if (bankScores > 21) playerWin ();
+  if (playerScores > 21) {playerLoose ();}
+  if (playerScores === 21) {blackjack ();}
+  if (bankScores > 21) {playerWin ();}
 }
 
 function blackjack ()
 {
   document.getElementById("btn-draw").removeEventListener("click", playerPlays);
   document.getElementById("btn-stay").removeEventListener("click", playerStays);
-  bodyChange ("DeepPink", "200px", "white", "center", "BLACKJACK", getCookie ("bet") * 2, false);
+  bodyChange ("DeepPink", "white", "center", "BLACKJACK", getCookie ("bet") * 2,
+  false);
   $("div").fadeOut (1000);
 }
 
@@ -85,24 +90,26 @@ function playerWin ()
 {
   document.getElementById("btn-draw").removeEventListener("click", playerPlays);
   document.getElementById("btn-stay").removeEventListener("click", playerStays);
-  bodyChange ("white", "200px", "DeepPink", "center", "Félicitation", getCookie ("bet"), false);
+  bodyChange ("blue", "DeepPink", "center", "Félicitation", getCookie ("bet"),
+  false);
 }
 
 function playerLoose ()
 {
   document.getElementById("btn-draw").removeEventListener("click", playerPlays);
   document.getElementById("btn-stay").removeEventListener("click", playerStays);
-  bodyChange ("black", "200px", "red", "center", "Perdu", -getCookie ("bet"), false);
+  bodyChange ("black", "red", "center", "Perdu", -getCookie ("bet"), false);
 }
 
-function bodyChange (bgColor, ftSize, color, txtAlign, txt, reward, fadeIn)
+function bodyChange (bgColor, color, txtAlign, txt, reward, fadeIn)
 {
   if (fadeIn) $("div").fadeIn (1000);
   else $("div").fadeOut (1000);
   setTimeout (function ()
   {
+    $("body").css("background-image", "none");
     $("body").css("background-color", bgColor);
-    $("body").css("font-size", ftSize);
+    $("body").css("font-size", "200px");
     $("body").css("color", color);
     $("body").css("text-align", txtAlign);
     if (!fadeIn)
@@ -113,8 +120,10 @@ function bodyChange (bgColor, ftSize, color, txtAlign, txt, reward, fadeIn)
       $("body").append ("You earn " + reward);
       else
       $("body").append ("You lose " + (-reward));
-      setCookie ("playerMoney", Number(getCookie("playerMoney")) + Number(reward) ,30);
-      setCookie ("bankMoney", Number(getCookie("bankMoney")) - Number(reward) ,30);
+      setCookie ("playerMoney", Number(getCookie("playerMoney")) +
+      Number(reward) ,30);
+      setCookie ("bankMoney", Number(getCookie("bankMoney")) - Number(reward) ,
+      30);
       replay ();
     }
   }, 1000);
@@ -123,7 +132,8 @@ function bodyChange (bgColor, ftSize, color, txtAlign, txt, reward, fadeIn)
 function replay ()
 {
   $("body").append ("<br/>");
-  let r= $('<input id="btn-replay" type="button" class="btn-sm btn-info" value="Rejouer"/>');
+  let r= $("<button></button>").text("Rejouer");
+  r.attr ({"id": "btn-replay", "class": "btn-sm btn-info"});
   $("body").append(r);
   document.getElementById("btn-replay").addEventListener("click", function (){
     location.reload ();
@@ -131,44 +141,50 @@ function replay ()
 }
 
 function setCookie(cname,cvalue,exdays) {
-    let d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    let expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  let d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires=" + d.toGMTString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
     }
-    return "";
+    if (c.indexOf(name) == 0) {return c.substring(name.length, c.length);}
+  }
+  return "";
+}
+
+function chooseANumber (txt,min,max, defaultValue)
+{
+  let inputValue = null;
+  do
+  {
+    inputValue = prompt (txt, defaultValue);
+  }while(inputValue === null || !Number.isInteger (Number(inputValue)) || Number(inputValue) > max || inputValue <= min)
+  return inputValue;
 }
 
 function updateMoney ()
 {
   let playerMoney = getCookie ("playerMoney");
   let bankMoney = getCookie ("bankMoney");
-  if (playerMoney != "" && bankMoney != "")
+  if (playerMoney === "" && bankMoney === "")
   {
-    document.getElementById ("bankMoney").innerHTML = bankMoney;
-    document.getElementById ("playerMoney").innerHTML = playerMoney;
+    playerMoney = chooseANumber ("Ton solde de départ ?", 0, Infinity, 100);
+    bankMoney = chooseANumber ("Le solde de départ de la banque ?", 0, Infinity,
+    100);
+    setCookie ("playerMoney", playerMoney, 30);
+    setCookie ("bankMoney", bankMoney, 30);
   }
-  else
-  {
-    let bankMoneyStart = prompt ("How many money do you want to start", 100);
-    let playerMoneyStart = prompt ("How many money do you want to start", 100);
-    setCookie ("bankMoney", bankMoneyStart, 30);
-    setCookie ("playerMoney", playerMoneyStart, 30);
-  }
+  document.getElementById ("bankMoney").innerHTML = bankMoney;
+  document.getElementById ("playerMoney").innerHTML = playerMoney;
 }
 
 function begin ()
@@ -183,9 +199,9 @@ function begin ()
     document.getElementById("btn-stay").addEventListener("click", playerStays);
   }, 1500);
 
-  }
+}
 
-  function playerPlays ()
+function playerPlays ()
 {
   addCard("player-cards");
 }
@@ -202,7 +218,7 @@ function playerStays ()
       clearInterval (bankLatency);
       if (bankScores <= 21) {
         if (bankScores > playerScores) playerLoose ();
-        else playerWin ();
+        else {playerWin ();}
       }
     }
     else if (bankScores > playerScores)
@@ -216,11 +232,27 @@ function playerStays ()
 function gameOver (bgColor, txtColor, txt)
 {
   $("div").hide();
+  $("body").css("background-image", "none");
   $("body").css("background-color", bgColor);
   $("body").css("font-size", "200px");
   $("body").css("color", txtColor);
   $("body").append(txt);
   $("body").css("text-align", "center");
+  $("body").append ("<br>");
+  let r= $("<button></button>").text("Wee Wee");
+  r.attr ({"id": "btn-restart", "class": "btn-sm btn-info"});
+  $("body").append(r);
+  document.getElementById("btn-restart").addEventListener("click", function (){
+    document.cookie = "bet=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    let cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      let cookie = cookies[i];
+      let eqPos = cookie.indexOf("=");
+      let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;";
+      location.reload ();
+    }
+  });
 }
 
 function bet ()
@@ -228,7 +260,8 @@ function bet ()
   $("#game").hide ();
   updateMoney ();
   let betValue = null;
-  document.cookie = "bet=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";//supprime le cookie
+  //supprime le cookie
+  document.cookie = "bet=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   let playerMoney = getCookie ("playerMoney");
   let bankMoney = getCookie ("bankMoney");
   if (playerMoney <= 0)
@@ -239,17 +272,14 @@ function bet ()
   {
     gameOver ("yellow", "blue", "Bravo t'a séché la banque <br> Go vegan");
   }
-  else {
-    {
-  }
-  do
+  else
   {
-    betValue = prompt ("Please enter your bet between 1 and " + playerMoney + ": ", 50);
-  }while(betValue === null || Number(betValue) > playerMoney || betValue <= 0)
-  setCookie ("bet",betValue,30);
-  document.getElementById ("currentBet").innerHTML = betValue;
-  begin ();
-}
+    betValue = chooseANumber ("Pariez (entre 1 et " + playerMoney + "): ", 0,
+    playerMoney, 10);
+    setCookie ("bet",betValue,30);
+    document.getElementById ("currentBet").innerHTML = betValue;
+    begin ();
+  }
 }
 
-document.onload = bet ();//begin ();
+document.onload = bet ();
