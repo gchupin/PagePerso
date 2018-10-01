@@ -81,8 +81,7 @@ function blackjack ()
 {
   document.getElementById("btn-draw").removeEventListener("click", playerPlays);
   document.getElementById("btn-stay").removeEventListener("click", playerStays);
-  bodyChange ("DeepPink", "white", "center", "BLACKJACK", getCookie ("bet") * 2,
-  false);
+  bodyChange ("DeepPink", "white", "center", "BLACKJACK", getCookie ("bet") * 2);
   $("div").fadeOut (1000);
 }
 
@@ -90,21 +89,20 @@ function playerWin ()
 {
   document.getElementById("btn-draw").removeEventListener("click", playerPlays);
   document.getElementById("btn-stay").removeEventListener("click", playerStays);
-  bodyChange ("blue", "DeepPink", "center", "Félicitation", getCookie ("bet"),
-  false);
+  bodyChange ("blue", "DeepPink", "center", "Félicitation", getCookie ("bet"));
 }
 
 function playerLoose ()
 {
   document.getElementById("btn-draw").removeEventListener("click", playerPlays);
   document.getElementById("btn-stay").removeEventListener("click", playerStays);
-  bodyChange ("black", "red", "center", "Perdu", -getCookie ("bet"), false);
+  bodyChange ("black", "red", "center", "Perdu", -getCookie ("bet"));
 }
 
-function bodyChange (bgColor, color, txtAlign, txt, reward, fadeIn)
+function bodyChange (bgColor, color, txtAlign, txt, reward)
 {
-  if (fadeIn) $("div").fadeIn (1000);
-  else $("div").fadeOut (1000);
+  $("div").fadeOut (1000);
+  $("footer").fadeOut (1000);
   setTimeout (function ()
   {
     $("body").css("background-image", "none");
@@ -112,20 +110,18 @@ function bodyChange (bgColor, color, txtAlign, txt, reward, fadeIn)
     $("body").css("font-size", "200px");
     $("body").css("color", color);
     $("body").css("text-align", txtAlign);
-    if (!fadeIn)
-    {
-      $("body").append (txt);
-      $("body").append ("<br>");
-      if (reward > 0)
-      $("body").append ("You earn " + reward);
-      else
-      $("body").append ("You lose " + (-reward));
-      setCookie ("playerMoney", Number(getCookie("playerMoney")) +
-      Number(reward) ,30);
-      setCookie ("bankMoney", Number(getCookie("bankMoney")) - Number(reward) ,
-      30);
-      replay ();
-    }
+    $("body").append (txt);
+    $("body").append ("<br>");
+    if (reward > 0)
+    $("body").append ("You earn " + reward);
+    else
+    $("body").append ("You lose " + (-reward));
+    setCookie ("playerMoney", Number(getCookie("playerMoney")) +
+    Number(reward) ,30);
+    setCookie ("bankMoney", Number(getCookie("bankMoney")) - Number(reward) ,
+    30);
+    replay ();
+
   }, 1000);
 }
 
@@ -232,6 +228,7 @@ function playerStays ()
 function gameOver (bgColor, txtColor, txt)
 {
   $("div").hide();
+  $("footer").hide();
   $("body").css("background-image", "none");
   $("body").css("background-color", bgColor);
   $("body").css("font-size", "200px");

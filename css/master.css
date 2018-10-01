@@ -1,11 +1,21 @@
-.navbar-pinky
+.navbar-brand
 {
-  background-color: #ff69cc;
+  color: lightYellow !important;
 }
 
-.navbar-serious
+.nav-link
 {
-  background-color: #21bbbb;
+  color: lightGrey !important;
+}
+
+.dropdown-menu
+{
+  background-color: lightYellow;
+}
+
+.dropdown-item:hover
+{
+  background-color: lightBlue;
 }
 
 .card-header
@@ -16,8 +26,29 @@
 
 body
 {
-  background-color: #ffccff;
+  background-color: lightYellow;
   font-size: 12px;
+}
+.jumbotron
+{
+  background-color: lightBlue;
+}
+
+.name
+{
+  font-weight: bold;
+  font-size: 69px;
+  color: lightYellow;
+  text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.catchPhrase
+{
+  font-size: 1.42em;
+  color: lightYellow;
+  margin-left: 6rem;
+  text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
 }
 
 body.en :lang(fr)
