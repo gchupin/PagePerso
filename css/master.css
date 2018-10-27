@@ -78,31 +78,3 @@ body.fr :lang(en)
 {
   display: none;
 }
-
-/* Responsiveness on smartphone */
-@media (max-width: 640px)
-{
-  *
-  {
-    box-sizing: border-box;
-  }
-  
-  body
-  {
-    width: auto;
-    margin: 0;
-    padding: 0;
-  }
-  
-  img
-  {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .hideMobile
-  {
-	display: none !important;
-  }
-  
-}
