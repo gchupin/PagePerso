@@ -31,7 +31,7 @@
 
 body
 {
-  background-color: lightYellow;
+  background-color: lightYellow !important;
   font-size: 12px;
 }
 .jumbotron
@@ -42,8 +42,8 @@ body
 .name
 {
   font-weight: bold;
-  font-size: 69px;
-  color: lightYellow;
+  font-size: 69px !important;
+  color: lightYellow !important;
   text-align: center;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
