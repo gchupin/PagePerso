@@ -2,11 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page pro de Guillaume Chupin</title>
 
   <link rel="stylesheet" href="/css/master.css">
+  <link rel="stylesheet" href="/css/mobile.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <!-- Bootstrap & JQuery -->
   <link href="css/bootstrap.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -14,17 +15,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <!-- Favicon -->
-  <link rel="icon" href="favicon.png">
+  <link rel="icon" href="Favicon.png">
 
 </head>
 <body onload="frOnLoad ()">
   <script>
   function frOnLoad() {document.body.className='fr';}
   </script>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-info">
     <!-- Brand -->
     <a class="navbar-brand" href="#">Guillaume CHUPIN</a>
     <!-- Links -->
@@ -54,14 +52,14 @@
       <div class="jumbotron border">
         <div class="row">
           <div class="col-8">
-            <h1 class="name">Guillaume Chupin</h1>
+            <h1 class="name  hideMobile">Guillaume Chupin</h1>
             <div class="row catchPhrase">
-              <p lang="fr">Génie logicielien de l'<a href="https://www.u-bordeaux.fr/">université de bordeaux</a> </p>
-              <p lang="en">Student in software engineering at <a href="https://www.u-bordeaux.fr/">université de bordeaux</a> </p>
+              <p lang="fr">Génie logicielien de <span class="hideMobile">l'<a href="https://www.u-bordeaux.fr/">université de bordeaux</a></span></p>
+              <p lang="en">Student in software engineering at  <span class="hideMobile"><a href="https://www.u-bordeaux.fr/">université de bordeaux</a></span></p>
             </div>
           </div>
           <div class="col-md-4">
-            <img src="LogoUB.jpg" alt="Logo de l'université de bordeaux" class="img-fluid rounded">
+            <a href="https://www.u-bordeaux.fr/"><img src="LogoUB.jpg" alt="Logo de l'université de bordeaux" class="img-fluid rounded"></a>
           </div>
         </div>
       </div>
