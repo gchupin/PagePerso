@@ -13,7 +13,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="Preview">
             <a class="dropdown-item" href="/blog/index.html">Blog</a>
-            <a class="dropdown-item" href="/Blackjack/blackjack.html">Blackjack</a>
+            <a class="dropdown-item" href="/Blackjack/blackjack.php">Blackjack</a>
             <a class="dropdown-item" href="/Spa/OpenDataBordeaux.php">SPA</a>
           </div>
         </li>
