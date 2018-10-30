@@ -5,16 +5,16 @@
     <div class="collapse navbar-collapse" id="nav-content">
       <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="/PagePerso/index.php">Page Pro</a>
+            <a class="nav-link" href="/">Page Pro</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <span lang="fr">Mes Projets Web</span><span lang="en">My web projects</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="Preview">
-            <a class="dropdown-item" href="/PagePerso/blog/index.html">Blog</a>
-            <a class="dropdown-item" href="/PagePerso/Blackjack/blackjack.html">Blackjack</a>
-            <a class="dropdown-item" href="/PagePerso/Spa/OpenDataBordeaux.php">SPA</a>
+            <a class="dropdown-item" href="/blog/index.html">Blog</a>
+            <a class="dropdown-item" href="/Blackjack/blackjack.html">Blackjack</a>
+            <a class="dropdown-item" href="/Spa/OpenDataBordeaux.php">SPA</a>
           </div>
         </li>
       </ul>
