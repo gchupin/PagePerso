@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page pro de Guillaume Chupin</title>
 
-  <link rel="stylesheet" href="/css/master.css">
-  <link rel="stylesheet" href="/css/mobile.css">
+  <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="css/mobile.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Bootstrap & JQuery -->
   <link href="css/bootstrap.css" rel="stylesheet">
@@ -22,32 +22,7 @@
   <script>
   function frOnLoad() {document.body.className='fr';}
   </script>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-info">
-    <!-- Brand -->
-    <a class="navbar-brand" href="#">Guillaume CHUPIN</a>
-    <!-- Links -->
-    <div class="collapse navbar-collapse" id="nav-content">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <span lang="fr">Mes Projets Web</span><span lang="en">My web projects</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="Preview">
-            <a class="dropdown-item" href="blog/index.html">Blog</a>
-            <a class="dropdown-item" href="Blackjack/blackjack.html">Blackjack</a>
-            <a class="dropdown-item" href="Spa/OpenDataBordeaux.html">SPA</a>
-          </div>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <button onclick="document.body.className='en'" class="btn btn-link nav-link">en</button>
-        </li>
-        <li class="nav-item">
-          <button onclick="document.body.className='fr'" class="btn btn-link nav-link">fr</button>
-        </ul>
-      </div>
-    </nav>
+    <?php include 'navbar.php' ?>
     <div class="container">
 
       <div class="jumbotron border">
@@ -55,7 +30,7 @@
           <div class="col-8">
             <h1 class="name  hideMobile">Guillaume Chupin</h1>
             <div class="row catchPhrase">
-              <p lang="fr">Génie logicielien de <span class="hideMobile">l'<a href="https://www.u-bordeaux.fr/">université de bordeaux</a></span></p>
+              <p lang="fr"> Génie logicielien de <span class="hideMobile">l'<a href="https://www.u-bordeaux.fr/">université de bordeaux</a></span></p>
               <p lang="en">Student in software engineering at  <span class="hideMobile"><a href="https://www.u-bordeaux.fr/">université de bordeaux</a></span></p>
             </div>
           </div>

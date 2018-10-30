@@ -5,14 +5,12 @@ const carouselImgURL = 'http://www.reveillere.fr/M2WEB/tds/td3/albums.json';
 $("#btn-toilets").on ("click", ()=> {
   $.getJSON (toiletsURL, (result) => 
   {
-    //let data = JSON.parse (JSON.stringify(result))
     dispJSONToillet (result.d)
   })
 });
 
 $("#btn-kidareas").on ("click", ()=> {
   $.getJSON (kidareasURL, (result) => {
-    //let data = JSON.parse (JSON.stringify(result))
     dispJSONKidArea (result.d)
   })
 });
@@ -23,7 +21,6 @@ fetch(carouselImgURL)
   })
   .then(function(myJson) {
     dispJSONImg (myJson.albums);
-    console.log(myJson.albums);
   });
 
 function dispJSONToillet (data)
@@ -53,12 +50,11 @@ function dispJSONImg (data)
     if (i == 0)
     {
       $("#indicators").append ("<li data-target=\"#myCarousel\" data-slide-to=" + i + " class=\"active\"></li>");
-      $("#slide").append ("<div class=\"item active\"> <img src=" + data [i].url +  " alt=" + data [i].name + " style=\"margin:0px auto;\"></div>");
-      print (data [i].url);
+      $("#slide").append ("<div class=\"carousel-item active\"> <img class=\"d-block w-50\" src=" + data [i].url +  " alt=" + data [i].name + " style=\"margin:0px auto;\"></div>");
     }
     if (i > 1)
     {
-      $("#slide").append ("<div class=\"item\"> <img src=" + data [i].url +  " alt=" + data [i].name + " style=\"margin:0px auto;\">");
+      $("#slide").append ("<div class=\"carousel-item\"> <img class=\"d-block w-50\" src=" + data [i].url +  " alt=" + data [i].name + " style=\"margin:0px auto;\">");
     }
   }
 }
