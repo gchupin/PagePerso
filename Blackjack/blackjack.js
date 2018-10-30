@@ -82,7 +82,6 @@ function blackjack ()
   document.getElementById("btn-draw").removeEventListener("click", playerPlays);
   document.getElementById("btn-stay").removeEventListener("click", playerStays);
   bodyChange ("DeepPink", "white", "center", "BLACKJACK", getCookie ("bet") * 2);
-  $("div").fadeOut (1000);
 }
 
 function playerWin ()
@@ -102,6 +101,7 @@ function playerLoose ()
 function bodyChange (bgColor, color, txtAlign, txt, reward)
 {
   $("div").fadeOut (1000);
+  $("nav").fadeOut (1000);
   $("footer").fadeOut (1000);
   setTimeout (function ()
   {
@@ -228,6 +228,7 @@ function playerStays ()
 function gameOver (bgColor, txtColor, txt)
 {
   $("div").hide();
+  $("nav").hide();
   $("footer").hide();
   $("body").css("background-image", "none");
   $("body").css("background-color", bgColor);

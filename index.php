@@ -6,6 +6,7 @@
   <title>Page pro de Guillaume Chupin</title>
 
   <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/mobile.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Bootstrap & JQuery -->
