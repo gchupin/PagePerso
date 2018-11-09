@@ -1,0 +1,9 @@
+    before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "gchupin"
+      - git config --local user.email "guillaume.chupin@etu.u-bordeaux.fr"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+    deploy:
+      provider: releases
+      api_key: ea46cb7e722f88669d79ba46ac2256f62e680b87
+      skip_cleanup: true
