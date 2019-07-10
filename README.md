@@ -9,7 +9,7 @@ github et d'autres informations.
 
 ## BlackJack
 ---
-Disponible à l'adresse http://guillaume.chupin.emi.u-bordeaux.fr/Blackjack/blackjack.html </br>
+Disponible à l'adresse http://guillaume.chupin.emi.u-bordeaux.fr/Blackjack/blackjack.php </br>
 Comprend un jeu de blackjack réaliser lors du deuxième tp de programmation web. </br>
 Pour plus d'infos, consulter le README.md disponible dans le dossier Blackjack.
 
