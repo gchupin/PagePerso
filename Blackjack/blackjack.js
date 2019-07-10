@@ -52,21 +52,22 @@ function NewCard (id)
 function addCard (id)
 {
   let newCard = document.createElement ("IMG");
-  cardPath = NewCard (id);
+  const cardPath = NewCard (id);
   if (cardPath === -1)
   {
     alert ("wtf dude");
     return;
   }
-  newCard.src = cardPath;
+  newCard.setAttribute("src", cardPath);
+  //newCard.src = cardPath;
   document.getElementById(id).appendChild(newCard);
   isGameOver ();
 }
 
 function getScores ()
 {
-  document.getElementById ("playerScores").innerHTML = playerScores;
-  document.getElementById ("bankScores").innerHTML = bankScores;
+  document.getElementById ("playerScores").innerHTML = playerScores.toString();
+  document.getElementById ("bankScores").innerHTML = bankScores.toString();
 }
 
 
@@ -81,7 +82,7 @@ function blackjack ()
 {
   document.getElementById("btn-draw").removeEventListener("click", playerPlays);
   document.getElementById("btn-stay").removeEventListener("click", playerStays);
-  bodyChange ("DeepPink", "white", "center", "BLACKJACK", getCookie ("bet") * 2);
+  bodyChange ("DeepPink", "white", "center", "BLACKJACK", parseInt(getCookie ("bet")) * 2);
 }
 
 function playerWin ()
@@ -98,24 +99,30 @@ function playerLoose ()
   bodyChange ("black", "red", "center", "Perdu", -getCookie ("bet"));
 }
 
+function fadeOut(el){
+  el.className = "faded";
+}
+
 function bodyChange (bgColor, color, txtAlign, txt, reward)
 {
-  $("div").fadeOut (1000);
-  $("nav").fadeOut (1000);
-  $("footer").fadeOut (1000);
+  
+  fadeOut(document.getElementById("toFade"));
   setTimeout (function ()
   {
-    $("body").css("background-image", "none");
-    $("body").css("background-color", bgColor);
-    $("body").css("font-size", "200px");
-    $("body").css("color", color);
-    $("body").css("text-align", txtAlign);
-    $("body").append (txt);
-    $("body").append ("<br>");
-    if (reward > 0)
-    $("body").append ("You earn " + reward);
-    else
-    $("body").append ("You lose " + (-reward));
+    let body = document.getElementsByTagName("body").item(0);
+    body.style.backgroundImage = "none";
+    body.style.backgroundColor = bgColor;
+    body.style.fontSize = "200px";
+    body.style.color = color;
+    body.style.textAlign = txtAlign;
+    body.appendChild(txt);
+    body.appendChild(document.createElement("br")); 
+    if (reward > 0){
+      body.appendChild( document.createTextNode("You earn" + reward));
+    }
+    else{
+      body.appendChild(document.createTextNode("You lose " + (-reward)));
+    }
     setCookie ("playerMoney", Number(getCookie("playerMoney")) +
     Number(reward) ,30);
     setCookie ("bankMoney", Number(getCookie("bankMoney")) - Number(reward) ,
@@ -127,10 +134,13 @@ function bodyChange (bgColor, color, txtAlign, txt, reward)
 
 function replay ()
 {
-  $("body").append ("<br/>");
-  let r= $("<button></button>").text("Rejouer");
-  r.attr ({"id": "btn-replay", "class": "btn-sm btn-info"});
-  $("body").append(r);
+  let body = document.getElementsByTagName("body").item(0);
+  body.appendChild(document.createElement("br"));
+  let button = document.createElement("button");
+  button.textContent = "Rejouer";
+  button.setAttribute("id", "btn-replay");
+  button.setAttribute("class", "btn-sm btn-info");
+  body.appendChild(button);
   document.getElementById("btn-replay").addEventListener("click", function (){
     location.reload ();
   });
@@ -139,7 +149,8 @@ function replay ()
 function setCookie(cname,cvalue,exdays) {
   let d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  let expires = "expires=" + d.toGMTString();
+  
+  let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
@@ -185,7 +196,7 @@ function updateMoney ()
 
 function begin ()
 {
-  $("#game").show ();
+  document.getElementById("game").style.display = " ";
 
   setTimeout (function () {addCard ("player-cards")}, 500);
   setTimeout (function () {addCard ("player-cards")}, 1000);
@@ -227,19 +238,20 @@ function playerStays ()
 
 function gameOver (bgColor, txtColor, txt)
 {
-  $("div").hide();
-  $("nav").hide();
-  $("footer").hide();
-  $("body").css("background-image", "none");
-  $("body").css("background-color", bgColor);
-  $("body").css("font-size", "200px");
-  $("body").css("color", txtColor);
-  $("body").append(txt);
-  $("body").css("text-align", "center");
-  $("body").append ("<br>");
-  let r= $("<button></button>").text("Wee Wee");
-  r.attr ({"id": "btn-restart", "class": "btn-sm btn-info"});
-  $("body").append(r);
+  document.getElementById("toFade").style.display = "none";
+  let body = document.getElementsByTagName("div").item(0);
+  body.style.backgroundImage = "none";
+  body.style.backgroundColor = bgColor;
+  body.style.fontSize = "200px";
+  body.style.color = "color";
+  body.style.textAlign = "center";
+  body.appendChild(document.createTextNode(txt));
+  body.appendChild(document.createElement("br"));
+  let button = document.createElement("button");
+  button.textContent = "Wee Wee";
+  button.setAttribute("id", "btn-restart");
+  button.setAttribute("class", "btn-sm btn-info");
+  body.appendChild(button);
   document.getElementById("btn-restart").addEventListener("click", function (){
     document.cookie = "bet=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     let cookies = document.cookie.split(";");
@@ -255,18 +267,18 @@ function gameOver (bgColor, txtColor, txt)
 
 function bet ()
 {
-  $("#game").hide ();
+  document.getElementById("game").style.display = "none";
   updateMoney ();
   let betValue = null;
   //supprime le cookie
   document.cookie = "bet=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   let playerMoney = getCookie ("playerMoney");
   let bankMoney = getCookie ("bankMoney");
-  if (playerMoney <= 0)
+  if (parseInt(playerMoney) <= 0)
   {
     gameOver ("red", "green", "T'a plus de fric boloss");//pétage des yeux
   }
-  else if (bankMoney <= 0)
+  else if (parseInt(bankMoney) <= 0)
   {
     gameOver ("yellow", "blue", "Bravo t'a séché la banque <br> Go vegan");
   }
@@ -280,4 +292,4 @@ function bet ()
   }
 }
 
-document.onload = bet ();
+window.onload = () => bet ();
