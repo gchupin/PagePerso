@@ -21,10 +21,7 @@
   <script src="blackjack.js" defer></script>
 </head>
 
-<body onload="frOnLoad ()">
-  <script>
-  function frOnLoad() {document.body.className='fr';}
-  </script>
+<body class="fr">
   <div id="toFade">
     <?php include '../navbar.php' ?>
     <div class="container">
