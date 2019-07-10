@@ -100,7 +100,16 @@ function playerLoose ()
 }
 
 function fadeOut(el){
-  el.className = "faded";
+		let opacity = 1;
+		let timer = setInterval(function(){
+				if (opacity <= 0.1){
+						clearInterval(timer);
+						el.style.display = "none";
+				}
+				el.style.opacity = opacity;
+				el.style.filter = "alpha(opacity=" + opacity * 100 + ")";
+				opacity -= opacity * 0.1;
+		}, 42)
 }
 
 function bodyChange (bgColor, color, txtAlign, txt, reward)
@@ -115,7 +124,7 @@ function bodyChange (bgColor, color, txtAlign, txt, reward)
     body.style.fontSize = "200px";
     body.style.color = color;
     body.style.textAlign = txtAlign;
-    body.appendChild(txt);
+		body.appendChild(document.createTextNode(txt));
     body.appendChild(document.createElement("br")); 
     if (reward > 0){
       body.appendChild( document.createTextNode("You earn" + reward));
@@ -188,7 +197,7 @@ function updateMoney ()
     bankMoney = chooseANumber ("Le solde de départ de la banque ?", 0, Infinity,
     100);
     setCookie ("playerMoney", playerMoney, 30);
-    setCookie ("bankMoney", bankMoney, 30);
+			setCookie ("bankMoney", bankMoney, 30);
   }
   document.getElementById ("bankMoney").innerHTML = bankMoney;
   document.getElementById ("playerMoney").innerHTML = playerMoney;
@@ -196,8 +205,8 @@ function updateMoney ()
 
 function begin ()
 {
-  document.getElementById("game").style.display = " ";
-
+  document.getElementById("game").style.display = "";
+		
   setTimeout (function () {addCard ("player-cards")}, 500);
   setTimeout (function () {addCard ("player-cards")}, 1000);
   setTimeout (function () {
@@ -238,12 +247,11 @@ function playerStays ()
 
 function gameOver (bgColor, txtColor, txt)
 {
-  document.getElementById("toFade").style.display = "none";
   let body = document.getElementsByTagName("div").item(0);
   body.style.backgroundImage = "none";
   body.style.backgroundColor = bgColor;
   body.style.fontSize = "200px";
-  body.style.color = "color";
+  body.style.color = txtColor;
   body.style.textAlign = "center";
   body.appendChild(document.createTextNode(txt));
   body.appendChild(document.createElement("br"));
@@ -267,8 +275,8 @@ function gameOver (bgColor, txtColor, txt)
 
 function bet ()
 {
-  document.getElementById("game").style.display = "none";
-  updateMoney ();
+		document.getElementById("game").style.display = "none";
+		updateMoney ();
   let betValue = null;
   //supprime le cookie
   document.cookie = "bet=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

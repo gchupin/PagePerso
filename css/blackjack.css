@@ -28,13 +28,3 @@ body
   background-image: url("../Blackjack/img/Blackjack.jpg");
   background-size: cover;
 }
-
-#toFade {
-  transition: 0ms;
-  -webkit-transition: opacity 2s;
-  opacity: 1;
-}
-
-#toFade.faded {
-  opacity: 0;
-}

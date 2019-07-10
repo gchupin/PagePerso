@@ -25,8 +25,8 @@
   <script>
   function frOnLoad() {document.body.className='fr';}
   </script>
-  <?php include '../navbar.php' ?>
   <div id="toFade">
+    <?php include '../navbar.php' ?>
     <div class="container">
       <div class="jumbotron">
         <!-- Bank Board -->
